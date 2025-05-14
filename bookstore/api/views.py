@@ -6,6 +6,7 @@ from .serializers import BookSerializer
 from django.http import Http404
 
 class BookListCreateAPIView(APIView):
+
     def get(self, request):
         books = Book.objects.all()
         serializer = BookSerializer(books, many=True)
@@ -18,7 +19,6 @@ class BookListCreateAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
 class BookDetailAPIView(APIView):
 
     """
