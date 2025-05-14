@@ -44,6 +44,6 @@ class BookDetailAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        snippet = self.get_object(pk)
-        snippet.delete()
+        book = self.get_object(pk)
+        book.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
